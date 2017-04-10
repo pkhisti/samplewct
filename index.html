@@ -2,6 +2,14 @@
 <head>
     <script>
     console.log("I am triggered");
+qboXDMReceiveMessage = function(message) {
+  // for the message.eventName === "qbo-action-UniversalCrud-save"
+  // message.data.id will have the id of the transaction
+  // message.data.typeName will be invoice, bill, etc.
+  console.log(message);
+}
+
+
         window.addEventListener("message", function(a) {
             if (a.origin.indexOf("intuit.com") >= 1 && a.data && a.data.initXDM) {
                 var b = document.createElement("script");
@@ -61,7 +69,7 @@
     <script type="text/javascript" data-main="js/trowser" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.js"></script>
 </head>
 <body>
-<ha-trowser id="step-flow-trowser" titleText="Trowser with Steps" type="step-flow" settings="false" help="false" dimissible="true">
+<!--<ha-trowser id="step-flow-trowser" titleText="Trowser with Steps" type="step-flow" settings="false" help="false" dimissible="true">
     <section>
         <ha-step-flow id="step-flow" progressIndicator>
             <ha-flow-step titleText="Step1 Text" subtitleText="Subtitle Text">
@@ -92,6 +100,6 @@
             </ha-flow-confirmation>
         </ha-step-flow>
     </section>
-</ha-trowser>
+</ha-trowser>-->
 </body>
 </html>
