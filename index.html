@@ -1,69 +1,7 @@
 <!DOCTYPE html>
 <head>
     <script>
-    console.log("I am triggered");
-qboXDMReceiveMessage = function(message) {
-  // for the message.eventName === "qbo-action-UniversalCrud-save"
-  // message.data.id will have the id of the transaction
-  // message.data.typeName will be invoice, bill, etc.
-  console.log(message);
-}
 
-
-        window.addEventListener("message", function(a) {
-            if (a.origin.indexOf("intuit.com") >= 1 && a.data && a.data.initXDM) {
-                var b = document.createElement("script");
-                b.setAttribute("type","text/javascript");
-                b.innerHTML = a.data.initXDM;
-                document.getElementsByTagName("head")[0].appendChild(b);
-            }
-        });
-
-        var showSpinnerCallback = function (obj) {
-            window.setTimeout(function () {
-                qboXDM.hideSpinner();
-                document.querySelector("#dataContainer").innerHTML = "Some Data";
-            }, obj.timeout/2);
-        }
-
-        getData = function() {
-            qboXDM.showSpinner(showSpinnerCallback);
-        }
-
-        confirmExit = function() {
-            qboXDM.showDialogWithCustomButtons("",
-                    "<b>Are you sure?</b><br/>If you cancel, you will lose all the data you filled so far.",
-                    [
-                        {
-                            "label": "Not yet",
-                            "section": -1
-                        },
-                        {
-                            "label": "Yes, cancel",
-                            "primary": true,
-                            "section": 1
-                        }
-                    ],
-                    {
-                        "iconClass": "warningIcon"
-                    },
-                    function (evt) {
-                        switch (evt.labelId) {
-                            case 0:
-                                console.log("Do something when click on 'Not yet' button");
-                                break;
-
-                            case 1:
-                                console.log("Do something when click on 'Yes, cancel' button");
-                                break;
-                        }
-                    }
-            );
-        }
-
-        openAddCOADialog = function() {
-            qboXDM.showDialog("qbo/lists/account/AccountDialogViewController", null, {options: {subTypes: ["bank"], defaultType: "Bank"}});
-        }
     </script>
     <link rel="stylesheet" href="https://plugin-qbo-qa.intuitcdn.net/qbo-ui/99.0.0-pre.6988/bower_components/harmony-ui-components/dist/css/hui.min.css">
     <!--<script type="text/javascript" data-main="js/trowser" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.js"></script>-->
@@ -101,5 +39,6 @@ qboXDMReceiveMessage = function(message) {
         </ha-step-flow>
     </section>
 </ha-trowser>-->
+<button class="ha-button" onclick="alert('Cicked')">Click Me</button>
 </body>
 </html>
