@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <script>
+    console.log("I am triggered");
         window.addEventListener("message", function(a) {
             if (a.origin.indexOf("intuit.com") >= 1 && a.data && a.data.initXDM) {
                 var b = document.createElement("script");
