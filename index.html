@@ -13,7 +13,7 @@
 
         showPageMessage = function() {
              alert("I am clicked");
-             console.log(window);
+
              window.qboXDM.showDialogWithCustomButtons("",
                             "<b>Are you sure?</b><br/>If you cancel, you will lose all the data you filled so far.",
                             [
@@ -44,7 +44,10 @@
                         );
                   }
 
-
+    qboXDMReceiveMessage = function(message, successFn, errorFn) {
+    if (message.eventName === "qbo-action-UniversalCrud-save") {
+        console.log("Save button is clicked");
+    }
 
     </script>
 <link rel="stylesheet" href="https://plugin-qbo-qa.intuitcdn.net/qbo-ui/99.0.0-pre.6988/bower_components/harmony-ui-components/dist/css/hui.min.css">
