@@ -53,13 +53,9 @@ $(document).ready(function(){
 
     qboXDMReceiveMessage = function(message, successFn, errorFn) {
     if (message.eventName === "qbo-action-UniversalCrud-save") {
-          if (success) {
-        successFn();
-          } else {
-        errorFn("error message");
-          }
-
-        console.log("Save button is clicked");
+        console.log(message);
+        console.log(successFn);
+          console.log("Save button is clicked");
      }
     }
 function   successFn(){
