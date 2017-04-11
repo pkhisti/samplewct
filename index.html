@@ -47,6 +47,7 @@
     qboXDMReceiveMessage = function(message, successFn, errorFn) {
     if (message.eventName === "qbo-action-UniversalCrud-save") {
         console.log("Save button is clicked");
+     }
     }
 
     </script>
@@ -86,7 +87,7 @@
         </ha-step-flow>
     </section>
 </ha-trowser>-->
-<button class="ha-button" onclick="showPageMessage()">Click Me</button>
+<button id="btnAmex" class="ha-button" onclick="showPageMessage()">Finance with AMEX</button>
  <script type="text/javascript">
      function qboXDMReady() {
                 qboXDM.getContext(
