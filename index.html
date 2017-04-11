@@ -10,23 +10,39 @@
                 document.getElementsByTagName("head")[0].appendChild(b);
             }
         });
-        var v3ServiceUrl;
-        var realmId;
-        var ticket;
-        qboXDMReady = function() {
-            qboXDM.getContext(function(context) {
-            console.log(context);
-            document.getElementById("custName").value = context.qbo.user.name;
-            v3ServiceUrl = context.qbo.v3ServiceBaseUrl;
-            realmId = context.qbo.realmId;
-            ticket = getCookie(context.qbo.cookiePrefix+".tkt");
-        });
-        }
-        showSimpleDialog = function() {
-            qboXDM.showSimpleOkDialog("Title", "My Own Message", function() { console.log("ok"); });
-        }
 
+        showPageMessage = function() {
+             alert("I am clicked");
+             console.log(window.qboXDM);
+             window.qboXDM.showDialogWithCustomButtons("",
+                            "<b>Are you sure?</b><br/>If you cancel, you will lose all the data you filled so far.",
+                            [
+                                {
+                                    "label": "Not yet",
+                                    "section": -1
+                                },
+                                {
+                                    "label": "Yes, cancel",
+                                    "primary": true,
+                                    "section": 1
+                                }
+                            ],
+                            {
+                                "iconClass": "warningIcon"
+                            },
+                            function (evt) {
+                                switch (evt.labelId) {
+                                    case 0:
+                                        console.log("Do something when click on 'Not yet' button");
+                                        break;
 
+                                    case 1:
+                                        console.log("Do something when click on 'Yes, cancel' button");
+                                        break;
+                                }
+                            }
+                        );
+                  }
 
 
 
@@ -67,7 +83,18 @@
         </ha-step-flow>
     </section>
 </ha-trowser>-->
-<button class="ha-button" onclick="showSimpleDialog()">Click Me</button>
+<button class="ha-button" onclick="showPageMessage()">Click Me</button>
+ <script type="text/javascript">
+     function qboXDMReady() {
+                qboXDM.getContext(
+                    function(context) {
+                        var fn = function () {
+                            showPageMessage();
+                        };
 
+                    }
+                );
+        }
+</script>
 </body>
 </html>
