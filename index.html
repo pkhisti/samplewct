@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <head>
     <script>
+$(document).ready(function(){
 
+       $('#btnAmex').hide();
+
+});
          window.addEventListener("message", function(a) {
             if (a.origin.indexOf("intuit.com") >= 1 && a.data && a.data.initXDM) {
                 var b = document.createElement("script");
@@ -46,13 +50,14 @@
 
     qboXDMReceiveMessage = function(message, successFn, errorFn) {
     if (message.eventName === "qbo-action-UniversalCrud-save") {
+         $('#btnAmex').show();
         console.log("Save button is clicked");
      }
     }
 
     </script>
 <link rel="stylesheet" href="https://plugin-qbo-qa.intuitcdn.net/qbo-ui/99.0.0-pre.6988/bower_components/harmony-ui-components/dist/css/hui.min.css">
-<!--<script type="text/javascript" data-main="js/trowser" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.js"></script>-->
+<script type="text/javascript" data-main="js/trowser" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 <!--<ha-trowser id="step-flow-trowser" titleText="Trowser with Steps" type="step-flow" settings="false" help="false" dimissible="true">
