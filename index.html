@@ -52,19 +52,16 @@ $(document).ready(function(){
                   }
 
   qboXDMReceiveMessage = function(message,ssuccessFn,f) {
-
-
-
         console.log("Received a message:");
         console.log(message);
         if (message) {
           if (message.eventName === "qbo-action-UniversalCrud-save-complete") {
-
-
-ssuccessFn();
-
-console.log("whats is in here");
-
+                 ssuccessFn();
+                 console.log("qbo-action-UniversalCrud-save-complete is captured");
+            }
+        if (message.eventName === "qbo-action-UniversalCrud-save") {
+                ssuccessFn();
+                console.log("qbo-action-UniversalCrud-save is captured");
         }
     }
   }
