@@ -51,17 +51,16 @@ $(document).ready(function(){
                         );
                   }
 
-  qboXDMReceiveMessage = function(message,s,f) {
+  qboXDMReceiveMessage = function(message,ssuccessFn = ssuccessFnCallBack(result),f) {
+
+
+
         console.log("Received a message:");
         console.log(message);
         if (message) {
           if (message.eventName === "qbo-action-UniversalCrud-save") {
 
-                     waitAndCall(function(){
-                         console.log(s);
-                        var response = s.call(this);
-                        console.log(response);
-  });
+
 
 
 
@@ -81,10 +80,11 @@ $(document).ready(function(){
         console.log("Save button is clicked");
      }
     }*/
-/*function   successFn(){
+function   ssuccessFnCallBack(result){
+    console.log(result)
      console.log("Save button is clicked success");
   $('#btnAmex').show();
-}*/
+}
     </script>
 </head>
 <body>
