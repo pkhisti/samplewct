@@ -59,7 +59,7 @@ $(document).ready(function(){
 
                      waitAndCall(function(){
                          console.log(s);
-                        var response = s();
+                        var response = s.call(this);
                         console.log(response);
   });
 
