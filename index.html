@@ -50,30 +50,30 @@ $(document).ready(function(){
                             }
                         );
                   }
-/*
-  qboXDMReceiveMessage = function(message,ssuccessFn = successFnCallBack(result),f) {
+
+  qboXDMReceiveMessage = function(message,ssuccessFn,f) {
 
 
 
         console.log("Received a message:");
         console.log(message);
         if (message) {
-          if (message.eventName === "qbo-action-UniversalCrud-save") {
+          if (message.eventName === "qbo-action-UniversalCrud-save-complete") {
 
 
+ssuccessFn();
 
-
-
+console.log("whats is in here");
 
         }
     }
-  }*/
+  }
 
-  window.qboXDMReceiveMessage = ({eventName, data: {action, typeName}}) => {
+/*  window.qboXDMReceiveMessage = ({eventName, data: {action, typeName}}) => {
       console.log(eventName);
        console.log(action);
 };
-
+*/
 
   function waitAndCall(func)
 {
