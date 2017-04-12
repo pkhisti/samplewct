@@ -57,12 +57,21 @@ $(document).ready(function(){
         if (message) {
           if (message.eventName === "qbo-action-UniversalCrud-save") {
                      console.log(s);
-                     var response = s();
-                     console.log(response);
+                     waitAndCall(function(){
+    s();
+  });
+
+
+
 
         }
     }
   }
+
+  function waitAndCall(func)
+{
+  setTimeout(func,parseInt(Math.random()*10000));
+}
    /* qboXDMReceiveMessage = function(message, successFn, errorFn) {
     if (message.eventName === "qbo-action-UniversalCrud-save") {
         console.log(message);
