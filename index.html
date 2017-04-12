@@ -51,13 +51,23 @@ $(document).ready(function(){
                         );
                   }
 
-    qboXDMReceiveMessage = function(message, successFn, errorFn) {
+  qboXDMReceiveMessage = function(message,s,f) {
+        console.log("Received a message:");
+        console.log(message);
+        if (message) {
+          if (message.eventName === "qbo-action-UniversalCrud-save") {
+
+
+        }
+    }
+  }
+   /* qboXDMReceiveMessage = function(message, successFn, errorFn) {
     if (message.eventName === "qbo-action-UniversalCrud-save") {
         console.log(message);
         console.log(successFn);
-          console.log("Save button is clicked");
+        console.log("Save button is clicked");
      }
-    }
+    }*/
 function   successFn(){
      console.log("Save button is clicked success");
   $('#btnAmex').show();
