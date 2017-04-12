@@ -50,8 +50,8 @@ $(document).ready(function(){
                             }
                         );
                   }
-
-  qboXDMReceiveMessage = function(message,ssuccessFn = ssuccessFnCallBack(result),f) {
+/*
+  qboXDMReceiveMessage = function(message,ssuccessFn = successFnCallBack(result),f) {
 
 
 
@@ -67,7 +67,13 @@ $(document).ready(function(){
 
         }
     }
-  }
+  }*/
+
+  window.qboXDMReceiveMessage = ({eventName, data: {action, typeName}}) => {
+      console.log(eventName);
+       console.log(action);
+};
+
 
   function waitAndCall(func)
 {
@@ -80,7 +86,7 @@ $(document).ready(function(){
         console.log("Save button is clicked");
      }
     }*/
-function   ssuccessFnCallBack(result){
+function   successFnCallBack(result){
     console.log(result)
      console.log("Save button is clicked success");
   $('#btnAmex').show();
