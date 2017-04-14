@@ -17,47 +17,6 @@ $(document).ready(function(){
                 document.getElementsByTagName("head")[0].appendChild(b);
             }
         });
-   var showSpinnerCallback = function (obj) {
-            window.setTimeout(function () {
-                qboXDM.hideSpinner();
-                document.querySelector("#dataContainer").innerHTML = "Some Data";
-            }, obj.timeout/2);
-        }
-
-        getData = function() {
-            qboXDM.showSpinner(showSpinnerCallback);
-        }
-
-        confirmExit = function() {
-            qboXDM.showDialogWithCustomButtons("",
-                    "<b>Are you sure?</b><br/>If you cancel, you will lose all the data you filled so far.",
-                    [
-                        {
-                            "label": "Not yet",
-                            "section": -1
-                        },
-                        {
-                            "label": "Yes, cancel",
-                            "primary": true,
-                            "section": 1
-                        }
-                    ],
-                    {
-                        "iconClass": "warningIcon"
-                    },
-                    function (evt) {
-                        switch (evt.labelId) {
-                            case 0:
-                                console.log("Do something when click on 'Not yet' button");
-                                break;
-
-                            case 1:
-                                console.log("Do something when click on 'Yes, cancel' button");
-                                break;
-                        }
-                    }
-            );
-        }
 
         showPageMessage = function() {
              alert("I am clicked");
@@ -119,69 +78,25 @@ $(document).ready(function(){
         }
         function showCustomModal()
         {
-            qboXDM.showDialogWithCustomButtons("What is Expensify?",
-    "When your friend subscribed, you will receive an email about your Amazon gift card",
-    [
-        {
-            "label": "Submit Feedback",
-            "section": -1
-        }, {
-            "label": "Close",
-            "primary": true,
-            "section": 1
+             document.querySelector("#my-step-flow").show();
         }
-    ],
-    {
-        "iconClass": ""
-    },
-    function (evt) {
-        switch (evt.labelId) {
-            case 0:
-               console.log("Do something with click on close button");
-                break;
 
-            case 1:
-                console.log("Do something with click on close button");
-                break;
-        }
-    }
-);
-        }
+
     </script>
 </head>
 <body>
-<ha-trowser id="step-flow-trowser" titleText="Trowser with Steps" type="step-flow" settings="false" help="false" dimissible="true">
-    <section>
-        <ha-step-flow id="step-flow" progressIndicator>
-            <ha-flow-step titleText="Step1 Text" subtitleText="Subtitle Text">
-                <section>
-                    <div id="dataContainer"></div>
-                    <br/>
-                    <button id="getDataButton" class="ha-button" onclick="getData();">
-                        Get Data
-                    </button>
-                    <br/>
-                    <button id="confirmExitButton" class="ha-button" onclick="confirmExit();">
-                        Exit
-                    </button>
-                    <br/>
-                    <button id="addCOAbutton" class="ha-button" onclick="openAddCOADialog();">
-                        Add Chart of Account
-                    </button>
-                </section>
-            </ha-flow-step>
-            <ha-flow-step titleText="Step2 Text" subtitleText="Subtitle Text">
-                <section></section>
-            </ha-flow-step>
-            <ha-flow-step titleText="Step3 Text" subtitleText="Subtitle Text">
-                <section></section>
-            </ha-flow-step>
-            <ha-flow-confirmation titleText="Confirmation Text" subtitleText="Subtitle Text">
-                <section></section>
-            </ha-flow-confirmation>
-        </ha-step-flow>
-    </section>
-</ha-trowser>
+<ha-step-flow id="my-step-flow" flow="linear" progressIndicator="true">     <ha-flow-landing>         <section>
+        <!-- landing page content here -->         </section>     </ha-flow-landing>
+          <ha-flow-step titleText="step1 title">         <section>         <!-- content for step1 here -->
+              </section>     </ha-flow-step>      <ha-flow-step titleText="step2 title">         <section>
+                     <!-- content for step2 here -->         </section>     </ha-flow-step>
+                       <ha-flow-step titleText="step3 title">         <section>
+                                <!-- section for step3 here -->         </section>
+                                 </ha-flow-step>
+                                  <ha-flow-confirmation titleText="Confirmation title text" subtitleText="Explanation of confirmation">
+                                        <section>             <!-- confirmation page custom content here -->
+                                          </section>
+                                              </ha-flow-confirmation> </ha-step-flow>
 <button id="btnAmex" class="ha-button" onclick="showPageMessage()">Finance with AMEX</button>
  <script type="text/javascript">
      function qboXDMReady() {
