@@ -56,11 +56,40 @@ $(document).ready(function(){
                 console.log(message);
                 if (message)
                 {
-                    if (message.eventName === "qbo-transaction") {
+           /*         if (message.eventName === "qbo-transaction") {
                             console.log(message.data);
                             $('#btnAmex').show();
-                }
+                }*/
+                 if (message.eventName === "qbo-action-UniversalCrud-save-complete") {
+                   setTimeout(function(){  showModal() }, 5000);
+                 }
             }
+        }
+        function showModal()
+        {
+            qboXDM.showContinueCancelDialog("title", "Are you sure you want to simply walk into Mordor?",
+    {
+        iconClass: "warningIcon",
+        showCheckBox : true,
+        dontShowAgain: "I'm Sauron! I don't want to be see this warning again.",
+        pref: "ignoreMordorWarningPopUp"
+    },
+    function (obj) {
+        switch (obj.action) {
+            case "continueFn":
+                console.log("Do something when continue button is clicked");
+                break;
+            case "cancelFn":
+                console.log("Do something when cancel button is clicked");
+                break;
+            case "ignoreFn":
+                console.log("Do something when dialog show is invoked even after user has explicitly said that he doesn't want to be shows this dialog again.");
+                break;
+            default:
+                console.error("Default case should not be ivoked");
+        }
+    }
+);
         }
     </script>
 </head>
