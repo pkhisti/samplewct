@@ -78,25 +78,14 @@ $(document).ready(function(){
         }
         function showCustomModal()
         {
-             $("#my-step-flow").show();
+           console.log("teest");
         }
 
 
     </script>
 </head>
 <body>
-<ha-step-flow id="my-step-flow" flow="linear" progressIndicator="true">     <ha-flow-landing>         <section>
-        <!-- landing page content here -->         </section>     </ha-flow-landing>
-          <ha-flow-step titleText="step1 title">         <section>         <!-- content for step1 here -->
-              </section>     </ha-flow-step>      <ha-flow-step titleText="step2 title">         <section>
-                     <!-- content for step2 here -->         </section>     </ha-flow-step>
-                       <ha-flow-step titleText="step3 title">         <section>
-                                <!-- section for step3 here -->         </section>
-                                 </ha-flow-step>
-                                  <ha-flow-confirmation titleText="Confirmation title text" subtitleText="Explanation of confirmation">
-                                        <section>             <!-- confirmation page custom content here -->
-                                          </section>
-                                              </ha-flow-confirmation> </ha-step-flow>
+<ha-modal titleText="Large Modal With Endflow" size="large" type="endflow">   <section>     ...   </section>   <footer>     ...   </footer> </ha-modal>
 <button id="btnAmex" class="ha-button" onclick="showPageMessage()">Finance with AMEX</button>
  <script type="text/javascript">
      function qboXDMReady() {
