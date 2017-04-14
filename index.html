@@ -67,26 +67,41 @@ $(document).ready(function(){
         }
         function showModal()
         {
-            qboXDM.showContinueCancelDialog("title", "Are you sure you want to simply walk into Mordor?",
+            qboXDM.showOkCancelDialog("How will you pay this bill?", "Do you want to know more about Expensify?",
+                {"iconClass": "confirmIcon"},
+                function () {
+                    console.log("OK button clicked");
+                }, function () {
+                    console.log("Cancel button clicked");
+                }
+            );
+        }
+        function showCustomModal()
+        {
+            qboXDM.showDialogWithCustomButtons("Referral sent",
+    "When your friend subscribed, you will receive an email about your Amazon gift card",
+    [
+        {
+            "label": "Refer another friend",
+            "section": -1
+        }, {
+            "label": "Close",
+            "primary": true,
+            "section": 1
+        }
+    ],
     {
-        iconClass: "warningIcon",
-        showCheckBox : true,
-        dontShowAgain: "I'm Sauron! I don't want to be see this warning again.",
-        pref: "ignoreMordorWarningPopUp"
+        "iconClass": "confirmIcon"
     },
-    function (obj) {
-        switch (obj.action) {
-            case "continueFn":
-                console.log("Do something when continue button is clicked");
+    function (evt) {
+        switch (evt.labelId) {
+            case 0:
+                qboXDM.navigate("approute://referrals");
                 break;
-            case "cancelFn":
-                console.log("Do something when cancel button is clicked");
+
+            case 1:
+                console.log("Do something with click on close button");
                 break;
-            case "ignoreFn":
-                console.log("Do something when dialog show is invoked even after user has explicitly said that he doesn't want to be shows this dialog again.");
-                break;
-            default:
-                console.error("Default case should not be ivoked");
         }
     }
 );
