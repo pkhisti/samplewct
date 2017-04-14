@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" href="https://plugin-qbo-qa.intuitcdn.net/qbo-ui/99.0.0-pre.6988/bower_components/harmony-ui-components/dist/css/hui.min.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+$(document).ready(function(){
+       $('#btnAmex').hide();
+});
+         window.addEventListener("message", function(a) {
+            if (a.origin.indexOf("intuit.com") >= 1 && a.data && a.data.initXDM) {
+                var b = document.createElement("script");
+                b.setAttribute("type","text/javascript");
+                b.innerHTML = a.data.initXDM;
+                document.getElementsByTagName("head")[0].appendChild(b);
+            }
+        });
+        qboXDMReceiveMessage = function(message,ssuccessFn,f) {
+                console.log("Received a message:");
+                console.log(message);
+                if (message)
+                {
+                    if (message.eventName === "qbo-transaction") {
+                            console.log(message.data);
+                            $('#btnAmex').show();
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<button id="btnAmex" class="ha-button" onclick="showPageMessage()">Finance with AMEX</button>
+ <script type="text/javascript">
+     function qboXDMReady() {
+                qboXDM.getContext(
+                    function(context) {
+                        //you can get qbo user details from the context
+                        }
+                );
+        }
+</script>
+</body>
+</html>
