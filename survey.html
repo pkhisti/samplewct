@@ -2,16 +2,13 @@
 <head>
 <link rel="stylesheet" href="https://plugin-qbo-qa.intuitcdn.net/qbo-ui/99.0.0-pre.6988/bower_components/harmony-ui-components/dist/css/hui.min.css">
 <body>
-<ha-card-discovery-large titleText="Some Title" dismissible>   <section>
-
-<ha-checkbox-group name="Checkbox Group" label="Checkbox Group">   <ha-checkbox label="Enabled Checkbox" checked></ha-checkbox>   <ha-checkbox disabled checked></ha-checkbox>   <ha-checkbox disabled></ha-checkbox>   <ha-checkbox readonly></ha-checkbox> </ha-checkbox-group> <ha-checkbox-group name="Checkbox Group" label="Checkbox Group with requried amount = 2" minRequired="2" required>   <ha-checkbox label="Enabled Checkbox" checked></ha-checkbox>   <ha-checkbox disabled checked></ha-checkbox>   <ha-checkbox disabled></ha-checkbox>   <ha-checkbox readonly></ha-checkbox> </ha-checkbox-group> <ha-checkbox-group class="ha-inline" name="Checkbox Group" label="Checkbox Group">   <ha-checkbox label="Enabled Checkbox" checked></ha-checkbox>   <ha-checkbox disabled checked></ha-checkbox>   <ha-checkbox disabled></ha-checkbox>   <ha-checkbox readonly></ha-checkbox> </ha-checkbox-group>
-
-
-     </section>   <footer>     <ha-footer-buttons>
-              <!-- add buttons here, in order tertiary (if applicable), secondary, and primary -->
-                  <button type="button" class="btn btn-default">Secondary</button>
-                     <button type="button" class="btn btn-primary">Primary</button>
-                      </ha-footer-buttons>   </footer> </ha-card-discovery-large>
+<div class="container-fluid">
+     <div class="row">
+            <div>
+                <ha-page-message titleText="Info Title" type="error" dismissible="true">   Lorem ipsum dolor sit amet... </ha-page-message>
+            </div>
+    </div>
+</div>
 
 
 </body>
